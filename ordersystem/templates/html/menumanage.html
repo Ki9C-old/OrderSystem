@@ -1,0 +1,20 @@
+{% extends "html/tmpmanage.html" %}
+
+{%block content%}
+{%for dish in dishes%}
+<div class="section is-small" style="display: inline; width: 300px; height: 240px;border: solid 3px #ffadd6;">
+    <a>{{dish.title}}</a>
+    <img src="{{MEDIA_URL}}{{dish.image}}">
+</div>
+{%endfor%}
+<h2 class="subtitle">メニューを追加</h2>
+<form action="." method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="field">
+        <div class="control">
+            <button class="button is-danger">追加</button>
+        </div>
+    </div>
+</form>
+{%endblock%}

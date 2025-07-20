@@ -1,0 +1,22 @@
+{% extends "html/tmpmanage.html" %}
+
+{%block content%}
+<h2>これはカテゴリ編集画面です</h2>
+{%for category in categories%}
+<div class="category block">
+    <p>{{category.category_id}}</p>
+    <a>{{category.category_name}}</a>
+</div>
+{%endfor%}
+<h2 class="subtitle">カテゴリを追加</h2>
+<form action="." method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="field">
+        <div class="control">
+            <button class="button is-danger">追加</button>
+        </div>
+    </div>
+</form>
+
+{%endblock%}
